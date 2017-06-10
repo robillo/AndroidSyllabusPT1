@@ -5,12 +5,19 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FiveFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FourFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.OneFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.ThreeFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.TwoFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,25 +80,37 @@ public class MainActivity extends AppCompatActivity {
     public void addFragment(int pos){
         switch (pos){
             case 1:{
-
+                OneFragment fragment = new OneFragment();
+                callFrag(fragment);
                 break;
             }
             case 2:{
-
+                TwoFragment fragment = new TwoFragment();
+                callFrag(fragment);
                 break;
             }
             case 3:{
-
+                ThreeFragment fragment = new ThreeFragment();
+                callFrag(fragment);
                 break;
             }
             case 4:{
-
+                FourFragment fragment = new FourFragment();
+                callFrag(fragment);
                 break;
             }
             case 5:{
-
+                FiveFragment fragment = new FiveFragment();
+                callFrag(fragment);
                 break;
             }
         }
+    }
+
+    private void callFrag(Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
