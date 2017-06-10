@@ -19,29 +19,32 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter List Header"
+                android:text="@string/enter_list_heading"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:gravity="center"
-                android:padding="4sp"/>
+                android:padding="4sp"
+                android:id="@+id/heading"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enter Description Here"
+                android:text="@string/enter_description_here"
                 android:textSize="15sp"
                 android:gravity="center"
-                android:padding="4sp"/>
+                android:padding="4sp"
+                android:id="@+id/description"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorAccent"
-                android:text="Add Item To List"
+                android:text="@string/add_item_to_list"
                 android:textColor="@color/white"
                 android:padding="8sp"
                 android:layout_margin="4sp"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/add"/>
 
         </LinearLayout>
 

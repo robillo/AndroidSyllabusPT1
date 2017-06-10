@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fra
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout container;
     @BindView(R.id.header)
     TextView header;
+
+    @BindView(R.id.heading)
+    TextView heading;
+    @BindView(R.id.description)
+    TextView description;
+    @BindView(R.id.add)
+    Button add;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -112,5 +121,20 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @OnClick(R.id.heading)
+    public void setHeading(){
+
+    }
+
+    @OnClick(R.id.description)
+    public void setDescription(){
+
+    }
+
+    @OnClick(R.id.add)
+    public void setAdd(){
+
     }
 }
