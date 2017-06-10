@@ -19,23 +19,23 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.one:{
                     mTextMessage.setText(R.string.one);
-                    break;
+                    return true;
                 }
                 case R.id.two:{
                     mTextMessage.setText(R.string.two);
-                    break;
+                    return true;
                 }
                 case R.id.three:{
                     mTextMessage.setText(R.string.three);
-                    break;
+                    return true;
                 }
                 case R.id.four:{
                     mTextMessage.setText(R.string.four);
-                    break;
+                    return true;
                 }
                 case R.id.five:{
                     mTextMessage.setText(R.string.five);
-                    break;
+                    return true;
                 }
             }
             return false;
