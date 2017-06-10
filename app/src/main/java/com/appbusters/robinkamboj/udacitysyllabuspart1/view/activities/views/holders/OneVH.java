@@ -14,9 +14,9 @@ public class OneVH extends RecyclerView.ViewHolder implements View.OnClickListen
     private ItemClickListener clickListener;
 
     @BindView(R.id.heading)
-    TextView heading;
+    public TextView heading;
     @BindView(R.id.description)
-    TextView description;
+    public TextView description;
 
     public OneVH(View itemView) {
         super(itemView);
