@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     @BindView(R.id.fragment_container)
     FrameLayout container;
+    @BindView(R.id.header)
+    TextView header;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -28,23 +30,28 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.one:{
-                    mTextMessage.setText(R.string.one);
+                    header.setText(getString(R.string.one));
+                    addFragment(1);
                     return true;
                 }
                 case R.id.two:{
-                    mTextMessage.setText(R.string.two);
+                    header.setText(getString(R.string.two));
+                    addFragment(2);
                     return true;
                 }
                 case R.id.three:{
-                    mTextMessage.setText(R.string.three);
+                    header.setText(getString(R.string.three));
+                    addFragment(3);
                     return true;
                 }
                 case R.id.four:{
-                    mTextMessage.setText(R.string.four);
+                    header.setText(getString(R.string.four));
+                    addFragment(4);
                     return true;
                 }
                 case R.id.five:{
-                    mTextMessage.setText(R.string.five);
+                    header.setText(getString(R.string.five));
+                    addFragment(5);
                     return true;
                 }
             }
@@ -63,4 +70,28 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    public void addFragment(int pos){
+        switch (pos){
+            case 1:{
+
+                break;
+            }
+            case 2:{
+
+                break;
+            }
+            case 3:{
+
+                break;
+            }
+            case 4:{
+
+                break;
+            }
+            case 5:{
+
+                break;
+            }
+        }
+    }
 }
