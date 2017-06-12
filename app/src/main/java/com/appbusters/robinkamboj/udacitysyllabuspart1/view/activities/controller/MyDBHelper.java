@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controll
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -80,4 +81,9 @@ public class MyDBHelper extends SQLiteOpenHelper{
         SQLiteDatabase database = this.getReadableDatabase();
         database.delete(TABLE_NAME, HEADING + "=? ", new String[]{heading});
     }
+
+    public int numberOfRows(){
+        SQLiteDatabase database = getReadableDatabase();
+        return (int) DatabaseUtils.queryNumEntries(database, TABLE_NAME);
+    };
 }
