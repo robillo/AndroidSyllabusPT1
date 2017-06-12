@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fr
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters.RecyclerOne;
 
@@ -27,7 +29,8 @@ import butterknife.OnClick;
 public class OneFragment extends Fragment {
 
     private RecyclerOne adapter;
-    List<Data> data = null;
+    private List<Data> data = null;
+    private MyDBHelper dbHelper;
 
     @BindView(R.id.heading)
     TextView heading;
@@ -52,15 +55,23 @@ public class OneFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_one, container, false);
 
         data = new ArrayList<>();
+        data = dbHelper.getAllData();
 
         if(data.size()>1){
             alternate.setVisibility(View.GONE);
             adapter = new RecyclerOne(getActivity(), data);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter);
         }
 
         return v;
     }
+
+//    private List<Data> fillWithData(){
+//        List<Data> data = new ArrayList<>();
+//
+//        return data;
+//    }
 
     @OnClick(R.id.heading)
     public void setHeading(){
