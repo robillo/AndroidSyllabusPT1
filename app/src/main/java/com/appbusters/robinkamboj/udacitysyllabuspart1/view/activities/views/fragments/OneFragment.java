@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters.RecyclerOne;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -35,6 +37,8 @@ public class OneFragment extends Fragment {
     Button add;
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
+    @BindView(R.id.alternate)
+    LinearLayout alternate;
 
     public OneFragment() {
         // Required empty public constructor
@@ -46,6 +50,14 @@ public class OneFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_one, container, false);
+
+        data = new ArrayList<>();
+
+        if(data.size()>1){
+            alternate.setVisibility(View.GONE);
+            adapter = new RecyclerOne(getActivity(), data);
+            recyclerView.setAdapter(adapter);
+        }
 
         return v;
     }

@@ -18,7 +18,7 @@ public class RecyclerOne extends RecyclerView.Adapter<OneVH>{
     private List<Data> list = new ArrayList<>();
     private Context parentContext;
 
-    public RecyclerOne(List<Data> list, Context parentContext) {
+    public RecyclerOne(Context parentContext, List<Data> list) {
         this.list = list;
         this.parentContext = parentContext;
     }
