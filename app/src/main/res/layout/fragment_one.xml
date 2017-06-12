@@ -68,8 +68,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/no_data_added"
-                    android:textSize="20sp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorAccent"
                     android:gravity="center"
                     android:fontFamily="sans-serif-smallcaps"/>
 
