@@ -11,4 +11,5 @@
     <string name="enter_list_heading">Enter List Heading</string>
     <string name="enter_description_here">Enter Description Here</string>
     <string name="add_item_to_list">Add Item To List</string>
+    <string name="no_data_added">No Data Added To The List Yet</string>
 </resources>
