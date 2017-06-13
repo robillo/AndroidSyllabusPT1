@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +37,7 @@ public class OneFragment extends Fragment {
     private RecyclerOne adapter;
     private List<Data> data = null;
     private MyDBHelper dbHelper;
+    private String iHeading = null, iDesc = null;
 
     @BindView(R.id.heading)
     TextView heading;
@@ -93,7 +93,9 @@ public class OneFragment extends Fragment {
                     @Override
                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                         if(input.length()>5){
-                            Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.heading_set, Toast.LENGTH_SHORT).show();
+                            heading.setText(input);
+                            iHeading = input.toString();
                         }
                         else {
                             Toast.makeText(getActivity(), R.string.please, Toast.LENGTH_SHORT).show();
@@ -112,7 +114,9 @@ public class OneFragment extends Fragment {
                     @Override
                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                         if(input.length()>5){
-                            Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.desc_set, Toast.LENGTH_SHORT).show();
+                            description.setText(input);
+                            iDesc = input.toString();
                         }
                         else {
                             Toast.makeText(getActivity(), R.string.please, Toast.LENGTH_SHORT).show();
@@ -123,6 +127,20 @@ public class OneFragment extends Fragment {
 
     @OnClick(R2.id.add)
     public void setAdd(){
+        if(validateInput()){
 
+        }
+        else {
+            Toast.makeText(getActivity(), "Please Enter Complete Details.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean validateInput(){
+        if(iHeading!=null && iDesc!=null){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

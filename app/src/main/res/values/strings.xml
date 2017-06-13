@@ -19,4 +19,6 @@
     <string name="description_desc">Description, List Item Will Represent</string>
     <string name="hint_description">Android Developer Professionals are cool.</string>
     <string name="please">Please write atleast 5 characters</string>
+    <string name="desc_set">Description set.</string>
+    <string name="heading_set">Heading set.</string>
 </resources>
