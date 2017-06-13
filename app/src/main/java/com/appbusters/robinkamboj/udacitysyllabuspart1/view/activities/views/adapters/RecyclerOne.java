@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.ItemClickListener;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.holders.OneVH;
 
 import java.util.ArrayList;
@@ -34,6 +35,14 @@ public class RecyclerOne extends RecyclerView.Adapter<OneVH>{
     public void onBindViewHolder(OneVH holder, int position) {
         holder.heading.setText(list.get(position).getHeading());
         holder.description.setText(list.get(position).getDescription());
+        holder.setClickListener(new ItemClickListener() {
+            @Override
+            public void onClick(View v, int position, boolean isLongClick) {
+                switch (v.getId()){
+
+                }
+            }
+        });
     }
 
     @Override
