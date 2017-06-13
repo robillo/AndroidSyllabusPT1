@@ -61,6 +61,8 @@ public class OneFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_one, container, false);
 
+        ButterKnife.bind(this, v);
+
         data = new ArrayList<>();
         dbHelper = new MyDBHelper(getActivity());
         data = dbHelper.getAllData();
@@ -83,7 +85,6 @@ public class OneFragment extends Fragment {
 
     @OnClick(R2.id.heading)
     public void setHeading(){
-        Toast.makeText(getActivity(), "ROBILLO", Toast.LENGTH_SHORT).show();
         new MaterialDialog.Builder(getActivity())
                 .title("TESTING")
                 .content("ROBILLO")
@@ -103,11 +104,11 @@ public class OneFragment extends Fragment {
 
     @OnClick(R2.id.description)
     public void setDescription(){
-        Toast.makeText(getActivity(), "ROBILLO", Toast.LENGTH_SHORT).show();
+
     }
 
     @OnClick(R2.id.add)
     public void setAdd(){
-        Toast.makeText(getActivity(), "ROBILLO", Toast.LENGTH_SHORT).show();
+
     }
 }
