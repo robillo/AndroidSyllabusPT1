@@ -130,6 +130,8 @@ public class OneFragment extends Fragment {
         if(validateInput()){
             dbHelper.createItem(iHeading, iDesc);
             refreshRV();
+            heading.setText(getString(R.string.enter_list_heading));
+            description.setText(getString(R.string.enter_description_here));
             Toast.makeText(getActivity(), "ITEM ADDED TO LIST", Toast.LENGTH_SHORT).show();
         }
         else {
