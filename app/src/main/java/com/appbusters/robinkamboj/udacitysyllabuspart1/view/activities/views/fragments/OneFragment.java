@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters.RecyclerOne;
@@ -59,7 +60,6 @@ public class OneFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_one, container, false);
-        ButterKnife.bind(getActivity());
 
         data = new ArrayList<>();
         dbHelper = new MyDBHelper(getActivity());
@@ -81,7 +81,7 @@ public class OneFragment extends Fragment {
 //        return data;
 //    }
 
-    @OnClick(R.id.heading)
+    @OnClick(R2.id.heading)
     public void setHeading(){
         Toast.makeText(getActivity(), "ROBILLO", Toast.LENGTH_SHORT).show();
         new MaterialDialog.Builder(getActivity())
@@ -101,12 +101,12 @@ public class OneFragment extends Fragment {
                 }).show();
     }
 
-    @OnClick(R.id.description)
+    @OnClick(R2.id.description)
     public void setDescription(){
         Toast.makeText(getActivity(), "ROBILLO", Toast.LENGTH_SHORT).show();
     }
 
-    @OnClick(R.id.add)
+    @OnClick(R2.id.add)
     public void setAdd(){
         Toast.makeText(getActivity(), "ROBILLO", Toast.LENGTH_SHORT).show();
     }
