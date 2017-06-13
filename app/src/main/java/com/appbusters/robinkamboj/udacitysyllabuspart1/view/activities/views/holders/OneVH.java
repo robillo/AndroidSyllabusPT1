@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.ItemClickListener;
 
 import butterknife.BindView;
@@ -13,9 +14,9 @@ public class OneVH extends RecyclerView.ViewHolder implements View.OnClickListen
 
     private ItemClickListener clickListener;
 
-    @BindView(R.id.heading)
+    @BindView(R2.id.heading)
     public TextView heading;
-    @BindView(R.id.description)
+    @BindView(R2.id.description)
     public TextView description;
 
     public OneVH(View itemView) {

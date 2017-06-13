@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +66,14 @@ public class OneFragment extends Fragment {
 
         data = new ArrayList<>();
         dbHelper = new MyDBHelper(getActivity());
+        refreshRV();
+
+        return v;
+    }
+
+    private void refreshRV(){
         data = dbHelper.getAllData();
+        Log.e("DATA SIZR", " " + data.size());
 
         if(data.size()>1){
             alternate.setVisibility(View.GONE);
@@ -73,15 +81,7 @@ public class OneFragment extends Fragment {
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter);
         }
-
-        return v;
     }
-
-//    private List<Data> fillWithData(){
-//        List<Data> data = new ArrayList<>();
-//
-//        return data;
-//    }
 
     @OnClick(R2.id.heading)
     public void setHeading(){
@@ -128,7 +128,9 @@ public class OneFragment extends Fragment {
     @OnClick(R2.id.add)
     public void setAdd(){
         if(validateInput()){
-
+            dbHelper.createItem(iHeading, iDesc);
+            refreshRV();
+            Toast.makeText(getActivity(), "ITEM ADDED TO LIST", Toast.LENGTH_SHORT).show();
         }
         else {
             Toast.makeText(getActivity(), "Please Enter Complete Details.", Toast.LENGTH_SHORT).show();
@@ -137,6 +139,7 @@ public class OneFragment extends Fragment {
 
     private boolean validateInput(){
         if(iHeading!=null && iDesc!=null){
+            refreshRV();
             return true;
         }
         else {
