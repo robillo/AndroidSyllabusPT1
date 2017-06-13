@@ -21,6 +21,7 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fra
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.OneFragment;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.ThreeFragment;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.TwoFragment;
+import com.squareup.leakcanary.LeakCanary;
 
 import java.util.List;
 
@@ -77,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(getApplication());
 
         header.setText(getString(R.string.one));
         addFragment(1);
@@ -88,10 +95,8 @@ public class MainActivity extends AppCompatActivity {
     public void addFragment(int pos){
         switch (pos){
             case 1:{
-                Log.e("ONE FRAGMENT", "BEFORE");
                 OneFragment fragment = new OneFragment();
                 callFrag(fragment);
-                Log.e("ONE FRAGMENT", "AFTER");
                 break;
             }
             case 2:{

@@ -14,11 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="4sp"
-            android:layout_margin="7sp">
+            android:layout_margin="7sp"
+            android:clickable="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="false"
                 android:orientation="vertical">
 
                 <TextView
@@ -26,6 +28,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/enter_list_heading"
                     android:textStyle="bold"
+                    android:clickable="true"
                     android:textSize="18sp"
                     android:gravity="center"
                     android:padding="4sp"
@@ -36,6 +39,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/enter_description_here"
                     android:textSize="15sp"
+                    android:clickable="true"
                     android:gravity="center"
                     android:padding="4sp"
                     android:id="@+id/description"/>
