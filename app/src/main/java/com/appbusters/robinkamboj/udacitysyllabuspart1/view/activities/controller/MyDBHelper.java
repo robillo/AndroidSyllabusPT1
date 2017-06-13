@@ -6,11 +6,14 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
+import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class MyDBHelper extends SQLiteOpenHelper{
 
@@ -20,9 +23,11 @@ public class MyDBHelper extends SQLiteOpenHelper{
 
     private static final String HEADING = "heading";
     private static final String DESCRIPTION = "Description";
+    private Context context;
 
     public MyDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -37,11 +42,18 @@ public class MyDBHelper extends SQLiteOpenHelper{
     }
 
     public void createItem(String heading, String description){
+
+        if(!checkIfSaved(heading)){
+            Toast.makeText(context, R.string.different, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(HEADING + " ", heading);
         contentValues.put(DESCRIPTION + " ", description);
         database.insert(TABLE_NAME, null, contentValues);
+        Toast.makeText(context, "ITEM ADDED TO LIST", Toast.LENGTH_SHORT).show();
     }
 
     private Cursor getItem(String heading){
