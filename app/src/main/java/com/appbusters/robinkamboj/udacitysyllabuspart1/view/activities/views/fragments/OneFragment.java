@@ -86,17 +86,17 @@ public class OneFragment extends Fragment {
     @OnClick(R2.id.heading)
     public void setHeading(){
         new MaterialDialog.Builder(getActivity())
-                .title("TESTING")
-                .content("ROBILLO")
+                .title(R.string.write_header)
+                .content(R.string.heading_desc)
                 .inputType(InputType.TYPE_CLASS_TEXT)
-                .input("HITNT THIS IS", null, new MaterialDialog.InputCallback() {
+                .input(getString(R.string.hint_heading), null, new MaterialDialog.InputCallback() {
                     @Override
                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                         if(input.length()>5){
                             Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            Toast.makeText(getActivity(), "PLEASE INPUT ATLEAST 5 CHARACTERS", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), R.string.please, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).show();
@@ -104,7 +104,21 @@ public class OneFragment extends Fragment {
 
     @OnClick(R2.id.description)
     public void setDescription(){
-
+        new MaterialDialog.Builder(getActivity())
+                .title(R.string.write_description)
+                .content(R.string.description_desc)
+                .inputType(InputType.TYPE_CLASS_TEXT)
+                .input(getString(R.string.hint_description), null, new MaterialDialog.InputCallback() {
+                    @Override
+                    public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+                        if(input.length()>5){
+                            Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(getActivity(), R.string.please, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }).show();
     }
 
     @OnClick(R2.id.add)

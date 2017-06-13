@@ -12,4 +12,11 @@
     <string name="enter_description_here">Enter Description Here</string>
     <string name="add_item_to_list">Add Item To List</string>
     <string name="no_data_added">No Data Added To The List Yet</string>
+    <string name="write_header">Write Header</string>
+    <string name="heading_desc">Heading, List Item Will Represent</string>
+    <string name="hint_heading">Android Developer</string>
+    <string name="write_description">Write Description</string>
+    <string name="description_desc">Description, List Item Will Represent</string>
+    <string name="hint_description">Android Developer Professionals are cool.</string>
+    <string name="please">Please write atleast 5 characters</string>
 </resources>
