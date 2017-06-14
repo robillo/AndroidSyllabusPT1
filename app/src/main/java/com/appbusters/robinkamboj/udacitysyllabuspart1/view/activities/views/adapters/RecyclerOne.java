@@ -69,7 +69,6 @@ public class RecyclerOne extends RecyclerView.Adapter<OneVH>{
                 }
                 else {
                     //IF CLICK WAS NOT LONG PRESS
-                    Toast.makeText(parentContext, "SHORT PRESS", Toast.LENGTH_SHORT).show();
                 }
             }
         });

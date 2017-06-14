@@ -3,10 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="1sp"
     android:padding="5sp"
+    android:foreground="?attr/selectableItemBackground"
+    android:stateListAnimator="@animator/lift_on_touch"
+    android:clickable="true"
+    app:cardPreventCornerOverlap="false"
     android:layout_margin="5sp"
     app:cardCornerRadius="3sp"
+    app:cardUseCompatPadding="true"
     android:id="@+id/cardView">
 
     <LinearLayout
