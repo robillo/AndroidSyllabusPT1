@@ -151,7 +151,7 @@ public class OneFragment extends Fragment {
 
     private void displayNotification(String h, String d){
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getActivity())
-                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(getString(R.string.heading_set) + " " + h)
                 .setContentText(getString(R.string.desc_set) + " " + d);
 
