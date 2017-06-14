@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- Widget service -->
+        <service
+            android:name=".view.activities.widget.RemoteViewService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
         <!-- Widget Receiver -->
         <receiver android:name=".view.activities.widget.WidgetProvider" >
             <intent-filter>
