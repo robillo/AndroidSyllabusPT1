@@ -16,7 +16,7 @@ import java.util.List;
 
 public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory{
 
-    private List<Data> data = new ArrayList<>();
+    private List<Data> data;
     private MyDBHelper dbHelper;
     private Context mContext;
 
@@ -26,6 +26,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
 
     @Override
     public void onCreate() {
+        data = new ArrayList<>();
         dbHelper = new MyDBHelper(mContext);
         data = dbHelper.getAllData();
         Toast.makeText(mContext, "SIZE IS " + data.size(), Toast.LENGTH_SHORT).show();
@@ -33,6 +34,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
 
     @Override
     public void onDataSetChanged() {
+        data = new ArrayList<>();
         data = dbHelper.getAllData();
     }
 
