@@ -6,7 +6,8 @@
     app:cardElevation="1sp"
     android:padding="5sp"
     android:layout_margin="5sp"
-    app:cardCornerRadius="3sp">
+    app:cardCornerRadius="3sp"
+    android:id="@+id/cardView">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,12 +1,16 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.ItemClickListener;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.holders.OneVH;
@@ -32,14 +36,38 @@ public class RecyclerOne extends RecyclerView.Adapter<OneVH>{
     }
 
     @Override
-    public void onBindViewHolder(OneVH holder, int position) {
+    public void onBindViewHolder(final OneVH holder, int position) {
         holder.heading.setText(list.get(position).getHeading());
         holder.description.setText(list.get(position).getDescription());
         holder.setClickListener(new ItemClickListener() {
             @Override
-            public void onClick(View v, int position, boolean isLongClick) {
-                switch (v.getId()){
+            public void onClick(View v, final int position, boolean isLongClick) {
+                if(isLongClick){
+                    //IF CLICK WAS LONG PRESS
+                    Toast.makeText(parentContext, "LONG PRESS", Toast.LENGTH_SHORT).show();
+                    PopupMenu popup = new PopupMenu(parentContext, holder.cardView);
+                    popup.inflate(R.menu.menu_rv_one);
+                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            switch (item.getItemId()){
+                                case R.id.delete_item:{
+                                    MyDBHelper dbHelper = new MyDBHelper(parentContext);
+                                    dbHelper.delete(list.get(position).getHeading());
+                                    break;
+                                }
+                                case R.id.update_item:{
 
+                                    break;
+                                }
+                            }
+                            return true;
+                        }
+                    });
+                }
+                else {
+                    //IF CLICK WAS NOT LONG PRESS
+                    Toast.makeText(parentContext, "SHORT PRESS", Toast.LENGTH_SHORT).show();
                 }
             }
         });

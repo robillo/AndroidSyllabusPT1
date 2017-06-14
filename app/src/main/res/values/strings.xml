@@ -22,4 +22,6 @@
     <string name="desc_set">Description set.</string>
     <string name="heading_set">Heading set.</string>
     <string name="different">Please Choose Different Heading</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="update_item">Update Item</string>
 </resources>

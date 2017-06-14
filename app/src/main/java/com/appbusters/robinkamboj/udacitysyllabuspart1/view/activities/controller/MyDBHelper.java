@@ -92,6 +92,7 @@ public class MyDBHelper extends SQLiteOpenHelper{
     public void delete(String heading){
         SQLiteDatabase database = this.getReadableDatabase();
         database.delete(TABLE_NAME, HEADING + "=? ", new String[]{heading});
+        Toast.makeText(context, "Item Deleted From List", Toast.LENGTH_SHORT).show();
     }
 
     public int numberOfRows(){
