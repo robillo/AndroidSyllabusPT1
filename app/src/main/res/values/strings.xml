@@ -19,9 +19,10 @@
     <string name="description_desc">Description, List Item Will Represent</string>
     <string name="hint_description">Android Developer Professionals are cool.</string>
     <string name="please">Please write atleast 5 characters</string>
-    <string name="desc_set">Description set.</string>
-    <string name="heading_set">Heading set.</string>
+    <string name="desc_set">Description set :</string>
+    <string name="heading_set">Heading set :</string>
     <string name="different">Please Choose Different Heading</string>
     <string name="delete_item">Delete Item</string>
     <string name="update_item">Update Item</string>
+    <string name="complete_details">Please Enter Complete Details.</string>
 </resources>

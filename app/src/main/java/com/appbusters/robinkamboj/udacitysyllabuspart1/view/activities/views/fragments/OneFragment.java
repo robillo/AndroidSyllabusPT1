@@ -1,9 +1,14 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments;
 
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
@@ -21,6 +26,7 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities.MainActivity;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters.RecyclerOne;
 
 import java.util.ArrayList;
@@ -39,6 +45,7 @@ public class OneFragment extends Fragment {
     private List<Data> data = null;
     private MyDBHelper dbHelper;
     private String iHeading = null, iDesc = null;
+    private NotificationManager notificationManager = null;
 
     @BindView(R.id.heading)
     TextView heading;
@@ -63,6 +70,7 @@ public class OneFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_one, container, false);
 
         ButterKnife.bind(this, v);
+        notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 
         data = new ArrayList<>();
         dbHelper = new MyDBHelper(getActivity());
@@ -129,6 +137,7 @@ public class OneFragment extends Fragment {
     public void setAdd(){
         if(validateInput()){
             dbHelper.createItem(iHeading, iDesc);
+            displayNotification(iHeading, iDesc);
             iHeading = null;
             iDesc = null;
             refreshRV();
@@ -136,8 +145,21 @@ public class OneFragment extends Fragment {
             description.setText(getString(R.string.enter_description_here));
         }
         else {
-            Toast.makeText(getActivity(), "Please Enter Complete Details.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.complete_details, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void displayNotification(String h, String d){
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getActivity())
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setContentTitle(getString(R.string.heading_set) + " " + h)
+                .setContentText(getString(R.string.desc_set) + " " + d);
+
+        Intent resultIntent = new Intent(getActivity(), MainActivity.class);
+        PendingIntent intent = PendingIntent.getActivity(getActivity(), 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(intent);
+
+        notificationManager.notify(1, mBuilder.build());
     }
 
     private boolean validateInput(){
