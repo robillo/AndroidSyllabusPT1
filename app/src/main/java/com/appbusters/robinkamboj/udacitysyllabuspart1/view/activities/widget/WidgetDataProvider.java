@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
+import android.widget.Toast;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
@@ -27,6 +28,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     public void onCreate() {
         dbHelper = new MyDBHelper(mContext);
         data = dbHelper.getAllData();
+        Toast.makeText(mContext, "SIZE IS " + data.size(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -49,6 +51,8 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
         RemoteViews view = new RemoteViews(mContext.getPackageName(), android.R.layout.simple_list_item_2);
         view.setTextColor(android.R.id.text1, Color.BLACK);
         view.setTextColor(android.R.id.text2, Color.BLACK);
+        view.setTextViewText(android.R.id.text1, data.get(position).getHeading());
+        view.setTextViewText(android.R.id.text2, data.get(position).getDescription());
         return view;
     }
 
