@@ -44,7 +44,6 @@ public class RecyclerOne extends RecyclerView.Adapter<OneVH>{
             public void onClick(View v, final int position, boolean isLongClick) {
                 if(isLongClick){
                     //IF CLICK WAS LONG PRESS
-                    Toast.makeText(parentContext, "LONG PRESS", Toast.LENGTH_SHORT).show();
                     PopupMenu popup = new PopupMenu(parentContext, holder.cardView);
                     popup.inflate(R.menu.menu_rv_one);
                     popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -54,6 +53,8 @@ public class RecyclerOne extends RecyclerView.Adapter<OneVH>{
                                 case R.id.delete_item:{
                                     MyDBHelper dbHelper = new MyDBHelper(parentContext);
                                     dbHelper.delete(list.get(position).getHeading());
+                                    list.remove(position);
+                                    notifyItemRemoved(position);
                                     break;
                                 }
                                 case R.id.update_item:{
@@ -64,6 +65,7 @@ public class RecyclerOne extends RecyclerView.Adapter<OneVH>{
                             return true;
                         }
                     });
+                    popup.show();
                 }
                 else {
                     //IF CLICK WAS NOT LONG PRESS

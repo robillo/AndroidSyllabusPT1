@@ -43,7 +43,7 @@ public class MyDBHelper extends SQLiteOpenHelper{
 
     public void createItem(String heading, String description){
 
-        if(!checkIfSaved(heading)){
+        if(checkIfSaved(heading)){
             Toast.makeText(context, R.string.different, Toast.LENGTH_SHORT).show();
             return;
         }
