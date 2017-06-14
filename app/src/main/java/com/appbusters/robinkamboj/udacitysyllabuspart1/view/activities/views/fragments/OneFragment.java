@@ -155,8 +155,22 @@ public class OneFragment extends Fragment {
                 .setContentTitle(getString(R.string.heading_set) + " " + h)
                 .setContentText(getString(R.string.desc_set) + " " + d);
 
+        String[] events = new String[6];
+        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+        inboxStyle.setBigContentTitle("TESTING BIG CONTENT TEXT");
+
+        for (int i = 0; i<6; i++){
+            events[i] = "ROBILLO";
+        }
+
+        // Moves events into the expanded layout
+        for (String event : events) {
+            inboxStyle.addLine(event);
+        }
+
         Intent resultIntent = new Intent(getActivity(), MainActivity.class);
         PendingIntent intent = PendingIntent.getActivity(getActivity(), 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setStyle(inboxStyle);
         mBuilder.setContentIntent(intent);
 
         notificationManager.notify(1, mBuilder.build());
