@@ -172,8 +172,9 @@ public class OneFragment extends Fragment {
         PendingIntent intent = PendingIntent.getActivity(getActivity(), 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setStyle(inboxStyle);
         mBuilder.setContentIntent(intent);
+        mBuilder.setAutoCancel(true);
 
-        notificationManager.notify(1, mBuilder.build());
+        notificationManager.notify(0, mBuilder.build());
     }
 
     private boolean validateInput(){
