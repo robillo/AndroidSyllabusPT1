@@ -93,7 +93,7 @@ public class OneFragment extends Fragment {
                     @Override
                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                         if(input.toString().length()>5){
-                            Toast.makeText(getActivity(), R.string.heading_set, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getActivity(), R.string.heading_set, Toast.LENGTH_SHORT).show();
                             heading.setText(input);
                             iHeading = input.toString();
                         }
@@ -114,7 +114,7 @@ public class OneFragment extends Fragment {
                     @Override
                     public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                         if(input.toString().length()>5){
-                            Toast.makeText(getActivity(), R.string.desc_set, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getActivity(), R.string.desc_set, Toast.LENGTH_SHORT).show();
                             description.setText(input);
                             iDesc = input.toString();
                         }
@@ -129,6 +129,8 @@ public class OneFragment extends Fragment {
     public void setAdd(){
         if(validateInput()){
             dbHelper.createItem(iHeading, iDesc);
+            iHeading = null;
+            iDesc = null;
             refreshRV();
             heading.setText(getString(R.string.enter_list_heading));
             description.setText(getString(R.string.enter_description_here));
