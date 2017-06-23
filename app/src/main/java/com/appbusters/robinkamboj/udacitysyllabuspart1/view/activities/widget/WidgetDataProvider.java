@@ -3,6 +3,7 @@ package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.widget;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 import android.widget.Toast;
@@ -14,27 +15,30 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Dat
 import java.util.ArrayList;
 import java.util.List;
 
-public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory{
+class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
 
     private List<Data> data;
     private MyDBHelper dbHelper;
     private Context mContext;
 
-    public WidgetDataProvider(Context mContext, Intent intent) {
+    WidgetDataProvider(Context mContext, Intent intent) {
         this.mContext = mContext;
     }
 
     @Override
     public void onCreate() {
+        Log.e("RVF", "OCS");
         data = new ArrayList<>();
         dbHelper = new MyDBHelper(mContext);
         data = dbHelper.getAllData();
         Toast.makeText(mContext, "SIZE IS " + data.size(), Toast.LENGTH_SHORT).show();
+        Log.e("RVF", "OCS");
     }
 
     @Override
     public void onDataSetChanged() {
         data = new ArrayList<>();
+        dbHelper = new MyDBHelper(mContext);
         data = dbHelper.getAllData();
     }
 
@@ -51,8 +55,8 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     @Override
     public RemoteViews getViewAt(int position) {
         RemoteViews view = new RemoteViews(mContext.getPackageName(), android.R.layout.simple_list_item_2);
-        view.setTextColor(android.R.id.text1, Color.BLACK);
-        view.setTextColor(android.R.id.text2, Color.BLACK);
+//        view.setTextColor(android.R.id.text1, Color.BLACK);
+//        view.setTextColor(android.R.id.text2, Color.BLACK);
         view.setTextViewText(android.R.id.text1, data.get(position).getHeading());
         view.setTextViewText(android.R.id.text2, data.get(position).getDescription());
         return view;
