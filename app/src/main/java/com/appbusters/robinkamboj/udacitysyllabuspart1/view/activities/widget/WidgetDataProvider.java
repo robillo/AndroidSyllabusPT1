@@ -33,6 +33,7 @@ class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
 //        data = dbHelper.getAllData();
 //        Toast.makeText(mContext, "SIZE IS " + data.size(), Toast.LENGTH_SHORT).show();
 //        Log.e("RVF", "OCS");
+//        Log.e("DATA SIZR", " " + data.size());
         initData();
     }
 
@@ -63,11 +64,11 @@ class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public RemoteViews getViewAt(int position) {
-        RemoteViews view = new RemoteViews(mContext.getPackageName(), android.R.layout.simple_list_item_2);
+        RemoteViews view = new RemoteViews(mContext.getPackageName(), android.R.layout.simple_list_item_1);
 //        view.setTextColor(android.R.id.text1, Color.BLACK);
 //        view.setTextColor(android.R.id.text2, Color.BLACK);
         view.setTextViewText(android.R.id.text1, data.get(position).getHeading());
-        view.setTextViewText(android.R.id.text2, data.get(position).getDescription());
+//        view.setTextViewText(android.R.id.text2, data.get(position).getDescription());
         return view;
     }
 

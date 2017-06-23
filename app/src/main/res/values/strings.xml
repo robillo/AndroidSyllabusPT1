@@ -25,4 +25,6 @@
     <string name="delete_item">Delete Item</string>
     <string name="update_item">Update Item</string>
     <string name="complete_details">Please Enter Complete Details.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

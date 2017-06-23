@@ -81,7 +81,6 @@ public class OneFragment extends Fragment {
 
     private void refreshRV(){
         data = dbHelper.getAllData();
-        Log.e("DATA SIZR", " " + data.size());
 
         if(data.size()>1){
             alternate.setVisibility(View.GONE);
