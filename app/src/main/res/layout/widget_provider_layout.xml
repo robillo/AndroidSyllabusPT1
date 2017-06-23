@@ -7,8 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/widgetLayoutMain"
@@ -54,11 +53,6 @@
                     android:textColor="#4B4B4D" />
             </LinearLayout>
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#aaa" />
 
         <ListView
             android:id="@+id/widgetCollectionList"

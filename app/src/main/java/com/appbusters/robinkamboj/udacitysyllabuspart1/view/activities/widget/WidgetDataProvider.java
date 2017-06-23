@@ -27,24 +27,33 @@ class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public void onCreate() {
-        Log.e("RVF", "OCS");
-        data = new ArrayList<>();
-        dbHelper = new MyDBHelper(mContext);
-        data = dbHelper.getAllData();
-        Toast.makeText(mContext, "SIZE IS " + data.size(), Toast.LENGTH_SHORT).show();
-        Log.e("RVF", "OCS");
+//        Log.e("RVF", "OCS");
+//        data = new ArrayList<>();
+//        dbHelper = new MyDBHelper(mContext);
+//        data = dbHelper.getAllData();
+//        Toast.makeText(mContext, "SIZE IS " + data.size(), Toast.LENGTH_SHORT).show();
+//        Log.e("RVF", "OCS");
+        initData();
     }
 
     @Override
     public void onDataSetChanged() {
-        data = new ArrayList<>();
-        dbHelper = new MyDBHelper(mContext);
-        data = dbHelper.getAllData();
+//        data = new ArrayList<>();
+//        dbHelper = new MyDBHelper(mContext);
+//        data = dbHelper.getAllData();
+        initData();
     }
 
     @Override
     public void onDestroy() {
 
+    }
+
+    private void initData() {
+        data.clear();
+        for (int i = 1; i <= 10; i++) {
+            data.add(new Data("ListView Header " + i, "ListView Description " + i));
+        }
     }
 
     @Override
