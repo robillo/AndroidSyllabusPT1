@@ -25,4 +25,13 @@ public class Data {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String testFunctionResults(String str1, String str2){
+
+        String temp = str1;
+        str1 = str2;
+        str2 = temp;
+
+        return str1.concat(str2);
+    }
 }
