@@ -14,13 +14,13 @@ public class SharedPrefs{
         return  context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
     }
 
-    public static void setIsProfileSet(String token){
+    public static void setIsToggleTrue(String token){
         SharedPreferences.Editor editor = getPreferences().edit();
         editor.putString(IS_TOGGLE_TRUE, token);
         editor.apply();
     }
 
-    public String getIsToggleTrue() {
+    public static String getIsToggleTrue() {
         return SharedPrefs.getPreferences().getString(IS_TOGGLE_TRUE, null);
     }
 

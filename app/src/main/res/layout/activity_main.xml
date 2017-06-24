@@ -48,10 +48,9 @@
             android:layout_marginTop="?attr/actionBarSize">
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/switch_bg"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Switch" />
+                android:layout_height="wrap_content"/>
 
             <FrameLayout
                 android:layout_width="match_parent"

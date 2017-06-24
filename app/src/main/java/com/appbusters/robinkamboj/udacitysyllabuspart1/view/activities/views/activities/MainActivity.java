@@ -7,11 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.SharedPrefs;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FiveFragment;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FourFragment;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.OneFragment;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout container;
     @BindView(R2.id.header)
     TextView header;
+    @BindView(R2.id.switch_bg)
+    Switch switch_bg;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -83,6 +88,31 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        if(SharedPrefs.getIsToggleTrue()!=null){
+            if(SharedPrefs.getIsToggleTrue().equals("TRUE")){
+                switch_bg.setBackgroundColor(getResources().getColor(R.color.white));
+                switch_bg.setChecked(true);
+            }
+            else {
+                switch_bg.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                switch_bg.setChecked(false);
+            }
+        }
+
+        switch_bg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean situation) {
+                if(situation){
+                    SharedPrefs.setIsToggleTrue("TRUE");
+                    switch_bg.setBackgroundColor(getResources().getColor(R.color.white));
+                }
+                else {
+                    SharedPrefs.setIsToggleTrue("FALSE");
+                    switch_bg.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                }
+            }
+        });
     }
 
     public void addFragment(int pos){
