@@ -27,4 +27,5 @@
     <string name="complete_details">Please Enter Complete Details.</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="configure">Configure</string>
 </resources>
