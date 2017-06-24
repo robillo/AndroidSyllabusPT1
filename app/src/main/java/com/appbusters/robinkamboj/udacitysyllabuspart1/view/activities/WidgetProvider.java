@@ -31,10 +31,10 @@ public class WidgetProvider extends AppWidgetProvider {
 
             if(bundle.getString("heading")!=null){
                 String item1 = bundle.getString("heading");
-                Toast.makeText(context, item1, Toast.LENGTH_LONG).show();
+                Toast.makeText(context, item1, Toast.LENGTH_SHORT).show();
                 Log.e("HEADING?", item1);
                 String item2 = bundle.getString("description");
-                Toast.makeText(context, item2, Toast.LENGTH_LONG).show();
+                Toast.makeText(context, item2, Toast.LENGTH_SHORT).show();
                 Log.e("DESCRIPTION?", item2);
             }
             else {
