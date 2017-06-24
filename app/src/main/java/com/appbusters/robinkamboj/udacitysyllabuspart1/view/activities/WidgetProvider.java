@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +15,8 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities.MainActivity;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities.WidgetDetailActivity;
 
 /**
  * Implementation of App Widget functionality.
@@ -50,13 +54,28 @@ public class WidgetProvider extends AppWidgetProvider {
         for (int widgetId : appWidgetIds) {
             RemoteViews mView = initViews(context, appWidgetManager, widgetId);
 
-            // Adding collection list item handler
+            //TO CALL BROADCAST
             final Intent onItemClick = new Intent(context, WidgetProvider.class);
             onItemClick.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             onItemClick.setData(Uri.parse(onItemClick.toUri(Intent.URI_INTENT_SCHEME)));
-            final PendingIntent onClickPendingIntent = PendingIntent
-                    .getBroadcast(context, 0, onItemClick, PendingIntent.FLAG_UPDATE_CURRENT);
+            final PendingIntent onClickPendingIntent = PendingIntent.getBroadcast(context, 0, onItemClick, PendingIntent.FLAG_UPDATE_CURRENT);
             mView.setPendingIntentTemplate(R.id.widgetCollectionList, onClickPendingIntent);
+
+//            //TO OPEN ACTIVITY
+//            try {
+//                Intent intent = new Intent("android.intent.action.MAIN");
+//                intent.addCategory("android.intent.category.LAUNCHER");
+//
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                intent.setComponent(new ComponentName(context.getPackageName(), MainActivity.class.getName()));
+//                PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+//                RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.row_widget);
+//                views.setOnClickPendingIntent(R.id.widgetCollectionList, pendingIntent);
+//            }
+//            catch (ActivityNotFoundException e){
+//                Toast.makeText(context,
+//                        "There was a problem loading the application: ", Toast.LENGTH_SHORT).show();
+//            }
 
             appWidgetManager.updateAppWidget(widgetId, mView);
         }
