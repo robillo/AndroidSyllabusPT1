@@ -62,7 +62,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
         fillInIntent.putExtras(bundle);
 //        fillInIntent.putExtra("heading", datas.get(position).getHeading());
 //        fillInIntent.putExtra("description", datas.get(position).getDescription());
-        mView.setOnClickFillInIntent(android.R.id.text1, fillInIntent);
+        mView.setOnClickFillInIntent(R.id.click, fillInIntent);
 
         return mView;
     }
