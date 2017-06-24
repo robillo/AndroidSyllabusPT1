@@ -1,7 +1,9 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities;
 
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
@@ -19,8 +21,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     List<String> mCollections2 = new ArrayList<>();
     private Context context;
 
-    List<Data> datas = new ArrayList<>();
-    MyDBHelper dbHelper;
+    private List<Data> datas = new ArrayList<>();
 
     public WidgetDataProvider(Context context, Intent intent) {
         this.context = context;
@@ -50,12 +51,18 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     public RemoteViews getViewAt(int position) {
         RemoteViews mView = new RemoteViews(context.getPackageName(), R.layout.row_widget);
         mView.setTextViewText(R.id.word, datas.get(position).getHeading());
-
-        Log.e("SIZER", " " + datas.get(position).getHeading());
-
         mView.setTextViewText(R.id.meaning, datas.get(position).getDescription());
 
-        Log.e("SIZER", " " + datas.get(position).getDescription());
+        //INTENT
+        Intent fillInIntent = new Intent();
+        fillInIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        Bundle bundle = new Bundle();
+        bundle.putString("heading", datas.get(position).getHeading());
+        bundle.putString("description", datas.get(position).getDescription());
+        fillInIntent.putExtras(bundle);
+//        fillInIntent.putExtra("heading", datas.get(position).getHeading());
+//        fillInIntent.putExtra("description", datas.get(position).getDescription());
+        mView.setOnClickFillInIntent(android.R.id.text1, fillInIntent);
 
         return mView;
     }
@@ -81,32 +88,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
     }
 
     private void initData() {
-//        mCollections.clear();
-//        mCollections2.clear();
-//
-//        mCollections.add("Abate");
-//        mCollections2.add("To Decrease/Reduce");
-//        mCollections.add("Abdicate");
-//        mCollections2.add("To Give Up a Position, Right or Power");
-//        mCollections.add("Aberrant");
-//        mCollections2.add("Deviating From What Is Normal");
-//        mCollections.add("Abeyance");
-//        mCollections2.add("Temporary Suppression or Suspension");
-//        mCollections.add("Abject");
-//        mCollections2.add("Miserable, Pitiful");
-//
-//        mCollections.add("Abate");
-//        mCollections2.add("To Decrease/Reduce");
-//        mCollections.add("Abdicate");
-//        mCollections2.add("To Give Up a Position, Right or Power");
-//        mCollections.add("Aberrant");
-//        mCollections2.add("Deviating From What Is Normal");
-//        mCollections.add("Abeyance");
-//        mCollections2.add("Temporary Suppression or Suspension");
-//        mCollections.add("Abject");
-//        mCollections2.add("Miserable, Pitiful");
-
-        dbHelper = new MyDBHelper(context);
+        MyDBHelper dbHelper = new MyDBHelper(context);
         datas = dbHelper.getAllData();
 
         Log.e("SIZERRRR", " " + datas.size());
