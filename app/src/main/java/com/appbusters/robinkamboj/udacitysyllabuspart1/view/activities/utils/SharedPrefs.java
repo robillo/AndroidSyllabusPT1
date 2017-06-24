@@ -1,4 +1,27 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils;
 
-public class SharedPrefs {
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.UdacitySyllabusApp;
+
+public class SharedPrefs{
+
+    private static final String IS_TOGGLE_TRUE = "true_or_false_toggle";
+
+    private static SharedPreferences getPreferences(){
+        Context context = UdacitySyllabusApp.getAppContext();
+        return  context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
+    }
+
+    public static void setIsProfileSet(String token){
+        SharedPreferences.Editor editor = getPreferences().edit();
+        editor.putString(IS_TOGGLE_TRUE, token);
+        editor.apply();
+    }
+
+    public String getIsToggleTrue() {
+        return SharedPrefs.getPreferences().getString(IS_TOGGLE_TRUE, null);
+    }
+
 }
