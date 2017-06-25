@@ -7,9 +7,6 @@
     <string name="four">चार</string>
     <string name="five">पंज</string>
 
-    <string name="key_true" translatable="false">TRUE</string>
-    <string name="key_false" translatable="false">FALSE</string>
-
     <string name="hello_blank_fragment">हैलो खाली टुकड़ा</string>
     <string name="enter_list_heading">सूची शीर्षक दर्ज करें</string>
     <string name="enter_description_here">विवरण यहाँ दर्ज करें</string>
@@ -30,5 +27,5 @@
     <string name="complete_details">कृपया पूरा विवरण दर्ज करें</string>
     <string name="add_widget">विजेट जोड़ें</string>
     <string name="configure">कॉन्फ़िगर</string>
-    <string name="switch_language" translatable="false">Switch Language</string>
+    <string name="go_to_settings">go to settings</string>
 </resources>

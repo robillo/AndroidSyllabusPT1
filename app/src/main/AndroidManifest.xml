@@ -7,12 +7,12 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".view.activities.UdacitySyllabusApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".view.activities.UdacitySyllabusApp"
         android:theme="@style/AppTheme">
         <service
             android:name=".view.activities.WidgetService"
@@ -39,7 +39,8 @@
                 android:resource="@xml/widget_provider_info" />
         </receiver>
 
-        <activity android:name=".view.activities.views.activities.WidgetDetailActivity"/>
+        <activity android:name=".view.activities.views.activities.WidgetDetailActivity" />
+        <activity android:name=".view.activities.views.activities.SettingsActivity"></activity>
     </application>
 
 </manifest>

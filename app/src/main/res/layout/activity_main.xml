@@ -52,12 +52,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <Switch
-                android:id="@+id/switch_language"
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/switch_language"
-                android:padding="5sp"/>
+                android:text="@string/go_to_settings"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:id="@+id/settings"/>
 
             <FrameLayout
                 android:layout_width="match_parent"

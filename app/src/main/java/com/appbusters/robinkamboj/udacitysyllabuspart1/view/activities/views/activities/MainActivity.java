@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.Switch;
@@ -30,6 +32,7 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     TextView header;
     @BindView(R2.id.switch_bg)
     Switch switch_bg;
-    @BindView(R2.id.switch_language)
-    Switch switch_language;
+    @BindView(R2.id.settings)
+    Button settings;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -121,42 +124,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        switch_language.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean situation) {
-                if(situation){
-                    Handler handler = new Handler();
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Locale locale= new Locale("en");
-                            Locale.setDefault(locale);
-                            Configuration configuration = new Configuration();
-                            configuration.locale = locale;
-                            Resources resources = getResources();
-                            DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-                            resources.updateConfiguration(configuration, displayMetrics);
-                        }
-                    });
-                }
-                else {
-                    Handler handler = new Handler();
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Locale locale = new Locale("hi");
-                            Locale.setDefault(locale);
-                            Configuration configuration = new Configuration();
-                            configuration.locale = locale;
-                            Resources resources = getResources();
-                            DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-                            resources.updateConfiguration(configuration, displayMetrics);
-                        }
-                    });
-                }
-            }
-        });
     }
 
     public void addFragment(int pos){
@@ -194,5 +161,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @OnClick(R2.id.settings)
+    public void setSettings(){
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 }

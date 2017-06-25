@@ -30,5 +30,6 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="configure">Configure</string>
-    <string name="switch_language">Switch Language</string>
+    <string name="switch_language" translatable="false">Switch Language</string>
+    <string name="go_to_settings">go to settings</string>
 </resources>
