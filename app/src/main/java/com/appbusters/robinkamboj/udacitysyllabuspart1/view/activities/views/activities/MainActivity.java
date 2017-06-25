@@ -1,11 +1,15 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
@@ -22,6 +26,8 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fra
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.TwoFragment;
 import com.squareup.leakcanary.LeakCanary;
 
+import java.util.Locale;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -33,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     TextView header;
     @BindView(R2.id.switch_bg)
     Switch switch_bg;
+    @BindView(R2.id.switch_language)
+    Switch switch_language;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -90,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         if(SharedPrefs.getIsToggleTrue()!=null){
-            if(SharedPrefs.getIsToggleTrue().equals("TRUE")){
+            if(SharedPrefs.getIsToggleTrue().equals(getString(R.string.key_true))){
                 switch_bg.setBackgroundColor(getResources().getColor(R.color.white));
                 switch_bg.setChecked(true);
             }
@@ -104,12 +112,48 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean situation) {
                 if(situation){
-                    SharedPrefs.setIsToggleTrue("TRUE");
+                    SharedPrefs.setIsToggleTrue(getString(R.string.key_true));
                     switch_bg.setBackgroundColor(getResources().getColor(R.color.white));
                 }
                 else {
-                    SharedPrefs.setIsToggleTrue("FALSE");
+                    SharedPrefs.setIsToggleTrue(getString(R.string.key_false));
                     switch_bg.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                }
+            }
+        });
+
+        switch_language.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean situation) {
+                if(situation){
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Locale locale= new Locale("en");
+                            Locale.setDefault(locale);
+                            Configuration configuration = new Configuration();
+                            configuration.locale = locale;
+                            Resources resources = getResources();
+                            DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+                            resources.updateConfiguration(configuration, displayMetrics);
+                        }
+                    });
+                }
+                else {
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Locale locale = new Locale("hi");
+                            Locale.setDefault(locale);
+                            Configuration configuration = new Configuration();
+                            configuration.locale = locale;
+                            Resources resources = getResources();
+                            DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+                            resources.updateConfiguration(configuration, displayMetrics);
+                        }
+                    });
                 }
             }
         });

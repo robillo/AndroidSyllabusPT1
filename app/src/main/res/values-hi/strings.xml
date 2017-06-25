@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">एंड्रॉइड सिलेबस</string>
+    <string name="one">एक</string>
+    <string name="two">दो</string>
+    <string name="three">तीन</string>
+    <string name="four">चार</string>
+    <string name="five">पंज</string>
+
+    <string name="key_true" translatable="false">TRUE</string>
+    <string name="key_false" translatable="false">FALSE</string>
+
+    <string name="hello_blank_fragment">हैलो खाली टुकड़ा</string>
+    <string name="enter_list_heading">सूची शीर्षक दर्ज करें</string>
+    <string name="enter_description_here">विवरण यहाँ दर्ज करें</string>
+    <string name="add_item_to_list">सूची में आइटम जोड़ें</string>
+    <string name="no_data_added">कोई भी सूची अभी तक सूचीबद्ध नहीं है</string>
+    <string name="write_header">शीर्षलेख लिखें</string>
+    <string name="heading_desc">शीर्षक, सूची आइटम प्रतिनिधित्व करेंगे</string>
+    <string name="hint_heading">एंड्रॉइड डेवलपर</string>
+    <string name="write_description">विवरण लिखें</string>
+    <string name="description_desc">विवरण, सूची आइटम प्रतिनिधित्व करेंगे</string>
+    <string name="hint_description">एंड्रॉइड डेवलपर पेशेवर शांत हैं</string>
+    <string name="please">कृपया कम से कम 5 वर्ण लिखें</string>
+    <string name="desc_set">विवरण सेट :</string>
+    <string name="heading_set">शीर्षक सेट :</string>
+    <string name="different">कृपया अलग शीर्षक चुनें</string>
+    <string name="delete_item">चीज़ें हटाएं</string>
+    <string name="update_item">आइटम अपडेट करें</string>
+    <string name="complete_details">कृपया पूरा विवरण दर्ज करें</string>
+    <string name="add_widget">विजेट जोड़ें</string>
+    <string name="configure">कॉन्फ़िगर</string>
+    <string name="switch_language" translatable="false">Switch Language</string>
+</resources>
