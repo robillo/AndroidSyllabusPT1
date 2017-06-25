@@ -36,13 +36,13 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R2.id.fragment_container)
+    @BindView(R.id.fragment_container)
     FrameLayout container;
-    @BindView(R2.id.header)
+    @BindView(R.id.header)
     TextView header;
-    @BindView(R2.id.switch_bg)
+    @BindView(R.id.switch_bg)
     Switch switch_bg;
-    @BindView(R2.id.settings)
+    @BindView(R.id.settings)
     Button settings;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -93,6 +93,27 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         LeakCanary.install(getApplication());
+
+        if(SharedPrefs.getIsLanguageSet()!=null){
+            if(SharedPrefs.getIsLanguageSet().equals(getString(R.string.key_true))){
+                Locale l = new Locale("hi");
+                Locale.setDefault(l);
+                Configuration configuration = new Configuration();
+                configuration.locale = l;
+                Resources resources = getResources();
+                DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+                resources.updateConfiguration(configuration, displayMetrics);
+            }
+            else {
+                Locale l= new Locale("en");
+                Locale.setDefault(l);
+                Configuration configuration = new Configuration();
+                configuration.locale = l;
+                Resources resources = getResources();
+                DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+                resources.updateConfiguration(configuration, displayMetrics);
+            }
+        }
 
         header.setText(getString(R.string.one));
         addFragment(1);

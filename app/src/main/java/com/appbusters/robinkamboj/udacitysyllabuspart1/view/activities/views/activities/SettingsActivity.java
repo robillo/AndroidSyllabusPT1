@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import android.widget.Switch;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.SharedPrefs;
 
 import java.util.Locale;
 
@@ -19,7 +21,7 @@ import butterknife.ButterKnife;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    @BindView(R2.id.switch_language)
+    @BindView(R.id.switch_language)
     Switch switch_language;
 
     @Override
@@ -28,26 +30,39 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
 
+        if(SharedPrefs.getIsLanguageSet()!=null){
+            if(SharedPrefs.getIsLanguageSet().equals(getString(R.string.key_true))){
+                switch_language.setChecked(true);
+            }
+            else {
+                switch_language.setChecked(false);
+            }
+        }
+
         switch_language.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean situation) {
-                if(situation){
-                    Locale locale= new Locale("en");
-                    Locale.setDefault(locale);
+                if(!situation){
+                    Locale l= new Locale("en");
+                    Locale.setDefault(l);
                     Configuration configuration = new Configuration();
-                    configuration.locale = locale;
+                    configuration.locale = l;
                     Resources resources = getResources();
                     DisplayMetrics displayMetrics = resources.getDisplayMetrics();
                     resources.updateConfiguration(configuration, displayMetrics);
+
+                    SharedPrefs.setIsLanguageSet(getString(R.string.key_false));
                 }
                 else {
-                    Locale locale = new Locale("hi");
-                    Locale.setDefault(locale);
+                    Locale l = new Locale("hi");
+                    Locale.setDefault(l);
                     Configuration configuration = new Configuration();
-                    configuration.locale = locale;
+                    configuration.locale = l;
                     Resources resources = getResources();
                     DisplayMetrics displayMetrics = resources.getDisplayMetrics();
                     resources.updateConfiguration(configuration, displayMetrics);
+
+                    SharedPrefs.setIsLanguageSet(getString(R.string.key_true));
                 }
             }
         });
@@ -55,6 +70,6 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+        super.onBackPressed();
     }
 }

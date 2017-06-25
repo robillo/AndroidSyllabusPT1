@@ -27,5 +27,5 @@
     <string name="complete_details">कृपया पूरा विवरण दर्ज करें</string>
     <string name="add_widget">विजेट जोड़ें</string>
     <string name="configure">कॉन्फ़िगर</string>
-    <string name="go_to_settings">go to settings</string>
+    <string name="go_to_settings">सेटिंग्स में जाओ</string>
 </resources>

@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controlle
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities.MainActivity;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters.RecyclerOne;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +59,8 @@ public class OneFragment extends Fragment {
     RecyclerView recyclerView;
     @BindView(R.id.alternate)
     LinearLayout alternate;
+    @BindView(R.id.image)
+    ImageView imageView;
 
     public OneFragment() {
         // Required empty public constructor
@@ -90,7 +94,7 @@ public class OneFragment extends Fragment {
         }
     }
 
-    @OnClick(R2.id.heading)
+    @OnClick(R.id.heading)
     public void setHeading(){
         new MaterialDialog.Builder(getActivity())
                 .title(R.string.write_header)
@@ -111,7 +115,7 @@ public class OneFragment extends Fragment {
                 }).show();
     }
 
-    @OnClick(R2.id.description)
+    @OnClick(R.id.description)
     public void setDescription(){
         new MaterialDialog.Builder(getActivity())
                 .title(R.string.write_description)
@@ -132,7 +136,7 @@ public class OneFragment extends Fragment {
                 }).show();
     }
 
-    @OnClick(R2.id.add)
+    @OnClick(R.id.add)
     public void setAdd(){
         if(validateInput()){
             dbHelper.createItem(iHeading, iDesc);
