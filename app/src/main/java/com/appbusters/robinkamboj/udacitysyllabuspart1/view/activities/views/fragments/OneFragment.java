@@ -59,8 +59,6 @@ public class OneFragment extends Fragment {
     RecyclerView recyclerView;
     @BindView(R.id.alternate)
     LinearLayout alternate;
-    @BindView(R.id.image)
-    ImageView imageView;
 
     public OneFragment() {
         // Required empty public constructor
