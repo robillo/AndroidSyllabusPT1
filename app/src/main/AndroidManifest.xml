@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
-            android:name=".view.activities.WidgetService"
+            android:name=".view.activities.widget.WidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".view.activities.WidgetProvider">
+        <receiver android:name=".view.activities.widget.WidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>

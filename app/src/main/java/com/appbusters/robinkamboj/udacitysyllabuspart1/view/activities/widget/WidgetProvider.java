@@ -1,11 +1,9 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.widget;
 
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,8 +13,6 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities.MainActivity;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities.WidgetDetailActivity;
 
 /**
  * Implementation of App Widget functionality.

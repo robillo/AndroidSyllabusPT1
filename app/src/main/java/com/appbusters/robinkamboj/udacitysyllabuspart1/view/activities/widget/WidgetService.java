@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.widget;
 
 import android.content.Intent;
 import android.widget.RemoteViewsService;

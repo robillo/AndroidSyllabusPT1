@@ -2,12 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FourFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.customviews.PieChart
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        app:showText="true"
+        app:labelPosition="left"/>
 
 </FrameLayout>
