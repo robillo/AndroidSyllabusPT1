@@ -13,4 +13,18 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="TextViewParent" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:fontFamily">sans-serif-smallcaps</item>
+        <item name="android:padding">5sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewParent.Button">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+    
 </resources>

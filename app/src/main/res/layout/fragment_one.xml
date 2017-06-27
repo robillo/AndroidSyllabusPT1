@@ -24,36 +24,25 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/enter_list_heading"
-                    android:textStyle="bold"
+                    style="@style/TextViewParent"
+                    android:id="@+id/heading"
                     android:clickable="true"
-                    android:textSize="18sp"
-                    android:gravity="center"
-                    android:padding="4sp"
-                    android:id="@+id/heading"/>
+                    android:textSize="16sp"
+                    android:text="@string/enter_list_heading"/>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/enter_description_here"
-                    android:textSize="15sp"
+                    style="@style/TextViewParent"
+                    android:id="@+id/description"
                     android:clickable="true"
-                    android:gravity="center"
-                    android:padding="4sp"
-                    android:id="@+id/description"/>
+                    android:textSize="12sp"
+                    android:text="@string/enter_description_here"/>
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorAccent"
-                    android:text="@string/add_item_to_list"
+                    style="@style/TextViewParent.Button"
+                    android:id="@+id/add"
+                    android:textSize="13sp"
                     android:textColor="@color/white"
-                    android:padding="8sp"
-                    android:layout_margin="4sp"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/add"/>
+                    android:text="@string/add_item_to_list"/>
 
             </LinearLayout>
 
