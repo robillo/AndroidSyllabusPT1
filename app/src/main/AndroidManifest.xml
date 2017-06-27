@@ -40,7 +40,7 @@
         </receiver>
 
         <activity android:name=".view.activities.views.activities.WidgetDetailActivity" />
-        <activity android:name=".view.activities.views.activities.SettingsActivity"></activity>
+        <activity android:name=".view.activities.views.activities.SettingsActivity" android:theme="@style/CustomTheme"/>
     </application>
 
 </manifest>

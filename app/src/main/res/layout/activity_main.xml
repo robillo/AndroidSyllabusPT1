@@ -36,7 +36,7 @@
                     android:id="@+id/header"
                     android:textColor="#FFFFFF"
                     android:gravity="start|center_vertical"
-                    android:nextFocusDown="@id/switch_bg"/>
+                    android:nextFocusDown="@+id/switch_bg"/>
 
             </android.support.v7.widget.Toolbar>
 
@@ -54,8 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/bg"
-                android:nextFocusDown="@id/settings"
-                android:nextFocusUp="@id/header"/>
+                android:nextFocusDown="@+id/settings"
+                android:nextFocusUp="@+id/header"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                 android:background="@color/colorAccent"
                 android:textColor="@color/white"
                 android:id="@+id/settings"
-                android:nextFocusUp="@id/switch_bg"/>
+                android:nextFocusUp="@+id/switch_bg"/>
 
             <FrameLayout
                 android:layout_width="match_parent"

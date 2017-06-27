@@ -8,9 +8,8 @@
 
     <Switch
         android:id="@+id/switch_language"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/TextViewParent"
         android:text="@string/switch_language"
-        android:padding="5sp"/>
+        android:textColor="@color/white"/>
 
 </LinearLayout>

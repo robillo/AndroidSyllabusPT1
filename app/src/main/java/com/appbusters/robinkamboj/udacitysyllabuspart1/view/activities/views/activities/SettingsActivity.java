@@ -1,5 +1,6 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -19,7 +20,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends Activity {
 
     @BindView(R.id.switch_language)
     Switch switch_language;
