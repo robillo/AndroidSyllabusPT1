@@ -30,11 +30,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/one"
+                    android:contentDescription="@string/one"
                     android:fontFamily="sans-serif-condensed"
                     android:textSize="20sp"
                     android:id="@+id/header"
                     android:textColor="#FFFFFF"
-                    android:gravity="start|center_vertical"/>
+                    android:gravity="start|center_vertical"
+                    android:nextFocusDown="@id/switch_bg"/>
 
             </android.support.v7.widget.Toolbar>
 
@@ -50,15 +52,20 @@
             <Switch
                 android:id="@+id/switch_bg"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/bg"
+                android:nextFocusDown="@id/settings"
+                android:nextFocusUp="@id/header"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/go_to_settings"
+                android:contentDescription="@string/go_to_settings"
                 android:background="@color/colorAccent"
                 android:textColor="@color/white"
-                android:id="@+id/settings"/>
+                android:id="@+id/settings"
+                android:nextFocusUp="@id/switch_bg"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
