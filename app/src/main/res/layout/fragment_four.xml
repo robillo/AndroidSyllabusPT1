@@ -6,6 +6,17 @@
 
     <com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.customviews.CustomView
         android:layout_width="match_parent"
-        android:layout_height="350sp" />
+        android:layout_height="350sp"
+        android:id="@+id/custom"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/swap"
+        android:text="@string/swap"
+        android:background="?attr/selectableItemBackground"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="5sp"
+        android:padding="5sp"/>
 
 </FrameLayout>

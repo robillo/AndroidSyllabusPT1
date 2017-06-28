@@ -6,14 +6,24 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.customviews.CustomView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FourFragment extends Fragment {
 
+    @BindView(R.id.swap)
+    Button swap;
+    @BindView(R.id.custom)
+    CustomView customView;
 
     public FourFragment() {
         // Required empty public constructor
@@ -24,7 +34,19 @@ public class FourFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_four, container, false);
+        View v = inflater.inflate(R.layout.fragment_four, container, false);
+        ButterKnife.bind(this, v);
+
+        return v;
     }
 
+    @OnClick(R.id.custom)
+    public void setCustomView(){
+        customView.swapColor();
+    }
+
+    @OnClick(R.id.swap)
+    public void setSwap(){
+        customView.swapColor();
+    }
 }

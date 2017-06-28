@@ -33,4 +33,5 @@
     <string name="switch_language" translatable="false">Switch Language</string>
     <string name="go_to_settings">go to settings</string>
     <string name="bg">Change Background Color</string>
+    <string name="swap">Swap Color</string>
 </resources>

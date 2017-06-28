@@ -12,7 +12,7 @@ import android.view.View;
 
 public class CustomView extends View{
 
-    private static final int SQUARE_SIZE = 100;
+    private static final int SQUARE_SIZE = 200;
     private Rect rectSquare;
     private Paint paintSquare;
 
@@ -42,19 +42,24 @@ public class CustomView extends View{
 
     private void init(@Nullable AttributeSet set){
         rectSquare = new Rect();
-        paintSquare = new Paint();
+        paintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintSquare.setColor(Color.GREEN);
+    }
+
+    public void swapColor(){
+        paintSquare.setColor(paintSquare.getColor()==Color.GREEN ? Color.RED : Color.GREEN);
+
+        postInvalidate();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        rectSquare.left = 10;
-        rectSquare.top = 10;
+        rectSquare.left = 50;
+        rectSquare.top = 50;
         rectSquare.right = rectSquare.left + SQUARE_SIZE;
         rectSquare.bottom = rectSquare.top + SQUARE_SIZE;
-
-        paintSquare.setColor(Color.GREEN);
 
         canvas.drawRect(rectSquare, paintSquare);
     }
