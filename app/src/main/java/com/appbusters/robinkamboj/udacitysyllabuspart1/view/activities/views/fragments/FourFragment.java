@@ -40,11 +40,6 @@ public class FourFragment extends Fragment {
         return v;
     }
 
-    @OnClick(R.id.custom)
-    public void setCustomView(){
-        customView.swapColor();
-    }
-
     @OnClick(R.id.swap)
     public void setSwap(){
         customView.swapColor();
