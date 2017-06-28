@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         app:square_color="@color/colorPrimaryDark"
         app:square_size="150sp"
+        android:contentDescription="@string/this_is_a_custom_view_robin_kamboj_created"
         android:id="@+id/custom"/>
 
     <Button
