@@ -15,8 +15,8 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 public class CustomView extends View{
 
     private static final int SQUARE_SIZE_DEF = 200;
-    private Rect rectSquare;
-    private Paint paintSquare;
+    private Rect mRectSquare;
+    private Paint mPaintSquare, mPaintCircle;
     private int mSquareColor, mSquareSize;
 
     public CustomView(Context context) {
@@ -43,9 +43,13 @@ public class CustomView extends View{
         init(attrs);
     }
 
+    @SuppressWarnings("deprecation")
     private void init(@Nullable AttributeSet set){
-        rectSquare = new Rect();
-        paintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mRectSquare = new Rect();
+        mPaintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+        mPaintCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaintCircle.setColor(getResources().getColor(R.color.colorAccent));
 
         if(set == null)
             return;
@@ -56,13 +60,13 @@ public class CustomView extends View{
         mSquareColor = array.getColor(R.styleable.CustomView_square_color, Color.GREEN);
         mSquareSize = array.getDimensionPixelSize(R.styleable.CustomView_square_size, SQUARE_SIZE_DEF);
 
-        paintSquare.setColor(mSquareColor);
+        mPaintSquare.setColor(mSquareColor);
 
         array.recycle();
     }
 
     public void swapColor(){
-        paintSquare.setColor(paintSquare.getColor()== mSquareColor ? Color.RED : mSquareColor);
+        mPaintSquare.setColor(mPaintSquare.getColor()== mSquareColor ? Color.RED : mSquareColor);
 
         postInvalidate();
     }
@@ -71,11 +75,19 @@ public class CustomView extends View{
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        rectSquare.left = 50;
-        rectSquare.top = 50;
-        rectSquare.right = rectSquare.left + mSquareSize;
-        rectSquare.bottom = rectSquare.top + mSquareSize;
+        mRectSquare.left = 50;
+        mRectSquare.top = 50;
+        mRectSquare.right = mRectSquare.left + mSquareSize;
+        mRectSquare.bottom = mRectSquare.top + mSquareSize;
 
-        canvas.drawRect(rectSquare, paintSquare);
+        canvas.drawRect(mRectSquare, mPaintSquare);
+
+        float cx, cy;
+        float radius = 100f;
+
+        cx = getWidth() - radius - 50f;
+        cy = mRectSquare.top + (mRectSquare.height()/2);
+
+        canvas.drawCircle(cx, cy, radius, mPaintCircle);
     }
 }

@@ -6,7 +6,7 @@
     tools:context="com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FourFragment">
 
     <com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.customviews.CustomView
-        android:layout_width="200sp"
+        android:layout_width="match_parent"
         android:layout_height="200sp"
         app:square_color="@color/colorPrimaryDark"
         app:square_size="150sp"
