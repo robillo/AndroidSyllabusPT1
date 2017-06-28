@@ -13,6 +13,8 @@ import android.view.View;
 public class CustomView extends View{
 
     private static final int SQUARE_SIZE = 100;
+    private Rect rectSquare;
+    private Paint paintSquare;
 
     public CustomView(Context context) {
         super(context);
@@ -39,22 +41,21 @@ public class CustomView extends View{
     }
 
     private void init(@Nullable AttributeSet set){
-
+        rectSquare = new Rect();
+        paintSquare = new Paint();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        Rect rect = new Rect();
-        rect.left = 10;
-        rect.top = 10;
-        rect.right = rect.left + SQUARE_SIZE;
-        rect.bottom = rect.top + SQUARE_SIZE;
+        rectSquare.left = 10;
+        rectSquare.top = 10;
+        rectSquare.right = rectSquare.left + SQUARE_SIZE;
+        rectSquare.bottom = rectSquare.top + SQUARE_SIZE;
 
-        Paint paint = new Paint();
-        paint.setColor(Color.GREEN);
+        paintSquare.setColor(Color.GREEN);
 
-        canvas.drawRect(rect, paint);
+        canvas.drawRect(rectSquare, paintSquare);
     }
 }
