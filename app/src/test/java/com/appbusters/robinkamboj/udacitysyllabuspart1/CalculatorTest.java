@@ -19,6 +19,13 @@ public class CalculatorTest {
     }
 
     @Test
+    public void checkSubtractionAgain() throws Exception {
+        int expected = 4;
+        int actual = MyCalculatorModel.subtract(6, 2);
+        assertEquals("Subtraction Failed", actual, expected);
+    }
+
+    @Test
     public void checkDivision() throws Exception {
         assertEquals("INFINITY", MyCalculatorModel.divide(4, 0));
         assertEquals("NOT DEFINED", MyCalculatorModel.divide(0, 0));
