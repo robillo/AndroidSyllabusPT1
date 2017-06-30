@@ -24,9 +24,9 @@ public class StudentsProvider extends ContentProvider {
     public static final String URL = "content://" + PROVIDER_NAME + "/students";
     public static final Uri CONTENT_URI = Uri.parse(URL);
 
-    static final String _ID = "_id";
-    static final String NAME = "name";
-    static final String GRADE = "grade";
+    public static final String _ID = "_id";
+    public static final String NAME = "name";
+    public static final String GRADE = "grade";
 
     private static HashMap<String, String> STUDENTS_PROJECTION_MAP;
     static final int STUDENTS = 1;
