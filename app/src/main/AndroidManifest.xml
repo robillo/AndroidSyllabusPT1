@@ -41,6 +41,10 @@
 
         <activity android:name=".views.activities.WidgetDetailActivity" />
         <activity android:name=".views.activities.SettingsActivity" android:theme="@style/CustomTheme"/>
+
+
+        <provider android:name=".controller.StudentsProvider"
+            android:authorities="com.appbusters.robinkamboj.udacitysyllabuspart1.controller.StudentsProvider"/>
     </application>
 
 </manifest>
