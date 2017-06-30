@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Objects;
 
+@SuppressWarnings("ConstantConditions")
 public class StudentsProvider extends ContentProvider {
 
     public static final String PROVIDER_NAME = "com.appbusters.robinkamboj.udacitysyllabuspart1.controller.StudentsProvider";
@@ -161,7 +162,7 @@ public class StudentsProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        int count = 0;
+        int count;
         switch (uriMatcher.match(uri)){
             case STUDENTS:
                 count = db.delete(STUDENTS_TABLE_NAME, selection, selectionArgs);
@@ -181,7 +182,7 @@ public class StudentsProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
-            int count = 0;
+            int count;
             switch (uriMatcher.match(uri)) {
                 case STUDENTS:
                     count = db.update(STUDENTS_TABLE_NAME, values, selection, selectionArgs);
