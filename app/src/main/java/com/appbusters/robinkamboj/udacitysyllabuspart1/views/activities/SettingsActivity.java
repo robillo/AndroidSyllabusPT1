@@ -1,19 +1,15 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.SharedPrefs;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.utils.SharedPrefs;
 
 import java.util.Locale;
 

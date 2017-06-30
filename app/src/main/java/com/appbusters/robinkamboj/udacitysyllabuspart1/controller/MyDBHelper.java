@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,11 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.model.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 public class MyDBHelper extends SQLiteOpenHelper{
 

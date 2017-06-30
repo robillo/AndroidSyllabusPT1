@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.model;
 
 public class Data {
 

@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FourFragment">
+    tools:context=".views.fragments.FourFragment">
 
-    <com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.customviews.CustomView
+    <com.appbusters.robinkamboj.udacitysyllabuspart1.views.customviews.CustomView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:square_color="@color/colorPrimaryDark"

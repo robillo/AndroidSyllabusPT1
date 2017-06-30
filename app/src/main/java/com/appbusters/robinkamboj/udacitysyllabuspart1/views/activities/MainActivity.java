@@ -1,10 +1,9 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -20,12 +19,12 @@ import android.widget.TextView;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.SharedPrefs;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FiveFragment;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FourFragment;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.OneFragment;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.ThreeFragment;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.TwoFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.utils.SharedPrefs;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments.FiveFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments.FourFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments.OneFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments.ThreeFragment;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments.TwoFragment;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.util.Locale;

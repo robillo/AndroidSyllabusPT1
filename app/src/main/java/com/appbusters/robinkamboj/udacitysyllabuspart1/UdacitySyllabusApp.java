@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities;
+package com.appbusters.robinkamboj.udacitysyllabuspart1;
 
 import android.app.Application;
 import android.content.Context;

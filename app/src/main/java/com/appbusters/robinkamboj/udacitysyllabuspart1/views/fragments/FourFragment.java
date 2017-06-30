@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments;
 
 
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.customviews.CustomView;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.customviews.CustomView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

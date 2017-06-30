@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.holders;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.holders;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -6,9 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.ItemClickListener;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.utils.ItemClickListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

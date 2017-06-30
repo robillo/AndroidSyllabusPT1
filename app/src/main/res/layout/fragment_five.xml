@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments.FiveFragment">
+    tools:context=".views.fragments.FiveFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

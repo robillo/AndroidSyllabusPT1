@@ -1,6 +1,6 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1;
 
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.MyCalculatorModel;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.model.MyCalculatorModel;
 
 import org.junit.Test;
 

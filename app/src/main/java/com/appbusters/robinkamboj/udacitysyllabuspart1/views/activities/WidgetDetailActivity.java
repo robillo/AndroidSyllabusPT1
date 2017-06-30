@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

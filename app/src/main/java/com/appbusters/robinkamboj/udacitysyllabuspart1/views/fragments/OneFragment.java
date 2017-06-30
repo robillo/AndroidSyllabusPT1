@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments;
 
 
 import android.app.NotificationManager;
@@ -12,24 +12,20 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.R2;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.activities.MainActivity;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters.RecyclerOne;
-import com.bumptech.glide.Glide;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.controller.MyDBHelper;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.model.Data;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.activities.MainActivity;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.adapters.RecyclerOne;
 
 import java.util.ArrayList;
 import java.util.List;

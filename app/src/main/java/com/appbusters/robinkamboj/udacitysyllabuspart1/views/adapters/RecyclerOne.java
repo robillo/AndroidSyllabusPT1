@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.adapters;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.PopupMenu;
@@ -7,13 +7,12 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils.ItemClickListener;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.holders.OneVH;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.controller.MyDBHelper;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.model.Data;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.utils.ItemClickListener;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.holders.OneVH;
 
 import java.util.ArrayList;
 import java.util.List;

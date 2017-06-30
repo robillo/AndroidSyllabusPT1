@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.fragments;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments;
 
 
 import android.os.Bundle;

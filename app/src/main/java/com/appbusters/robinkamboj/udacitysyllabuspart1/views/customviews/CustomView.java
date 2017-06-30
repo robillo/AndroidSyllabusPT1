@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.views.customviews;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.views.customviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;

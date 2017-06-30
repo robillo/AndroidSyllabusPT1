@@ -1,9 +1,9 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.utils;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.UdacitySyllabusApp;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.UdacitySyllabusApp;
 
 public class SharedPrefs{
 

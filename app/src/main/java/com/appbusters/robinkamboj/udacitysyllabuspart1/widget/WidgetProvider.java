@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.widget;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.widget;
 
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;

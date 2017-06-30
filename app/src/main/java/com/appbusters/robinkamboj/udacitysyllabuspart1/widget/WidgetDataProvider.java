@@ -1,4 +1,4 @@
-package com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.widget;
+package com.appbusters.robinkamboj.udacitysyllabuspart1.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.controller.MyDBHelper;
-import com.appbusters.robinkamboj.udacitysyllabuspart1.view.activities.model.Data;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.controller.MyDBHelper;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.model.Data;
 
 import java.util.ArrayList;
 import java.util.List;
