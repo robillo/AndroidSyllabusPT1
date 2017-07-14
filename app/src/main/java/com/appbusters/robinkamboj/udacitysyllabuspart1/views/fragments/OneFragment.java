@@ -39,7 +39,6 @@ import butterknife.OnClick;
  */
 public class OneFragment extends Fragment {
 
-    private RecyclerOne adapter;
     private List<Data> data = null;
     private MyDBHelper dbHelper;
     private String iHeading = null, iDesc = null;
@@ -82,7 +81,7 @@ public class OneFragment extends Fragment {
 
         if(data.size()>1){
             alternate.setVisibility(View.GONE);
-            adapter = new RecyclerOne(getActivity(), data);
+            RecyclerOne adapter = new RecyclerOne(getActivity(), data);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter);
         }

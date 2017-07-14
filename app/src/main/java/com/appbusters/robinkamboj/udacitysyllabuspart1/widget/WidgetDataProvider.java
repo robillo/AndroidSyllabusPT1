@@ -15,7 +15,7 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.model.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory{
+class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory{
 
     List<String> mCollections = new ArrayList<>();
     List<String> mCollections2 = new ArrayList<>();
@@ -23,7 +23,7 @@ public class WidgetDataProvider implements RemoteViewsService.RemoteViewsFactory
 
     private List<Data> datas = new ArrayList<>();
 
-    public WidgetDataProvider(Context context, Intent intent) {
+    WidgetDataProvider(Context context, Intent intent) {
         this.context = context;
     }
 
