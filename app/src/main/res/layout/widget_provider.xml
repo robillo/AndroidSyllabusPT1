@@ -48,7 +48,7 @@
                     android:textSize="15sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="list of items you saved"
+                    android:text="@string/list_of_items_you_saved"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#4B4B4D" />
             </LinearLayout>

@@ -3,6 +3,8 @@ package com.appbusters.robinkamboj.udacitysyllabuspart1.views.fragments;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ import com.appbusters.robinkamboj.udacitysyllabuspart1.controller.MyDBHelper;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.model.Data;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.views.activities.MainActivity;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.views.adapters.RecyclerOne;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.widget.WidgetDataProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +46,8 @@ public class OneFragment extends Fragment {
     private MyDBHelper dbHelper;
     private String iHeading = null, iDesc = null;
     private NotificationManager notificationManager = null;
+    AppWidgetManager widgetManager;
+    int[] appWidgetIds;
 
     @BindView(R.id.heading)
     TextView heading;
@@ -68,6 +73,8 @@ public class OneFragment extends Fragment {
 
         ButterKnife.bind(this, v);
         notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        widgetManager = AppWidgetManager.getInstance(getActivity());
+        appWidgetIds = widgetManager.getAppWidgetIds(new ComponentName(getActivity(), WidgetDataProvider.class));
 
         data = new ArrayList<>();
         dbHelper = new MyDBHelper(getActivity());
@@ -139,6 +146,7 @@ public class OneFragment extends Fragment {
             refreshRV();
             heading.setText(getString(R.string.enter_list_heading));
             description.setText(getString(R.string.enter_description_here));
+            widgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widgetCollectionList);
         }
         else {
             Toast.makeText(getActivity(), R.string.complete_details, Toast.LENGTH_SHORT).show();

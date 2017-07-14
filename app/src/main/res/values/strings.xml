@@ -35,4 +35,5 @@
     <string name="bg">Change Background Color</string>
     <string name="swap">Swap Color</string>
     <string name="this_is_a_custom_view_robin_kamboj_created">This Is A Custom View Robin Kamboj Created</string>
+    <string name="list_of_items_you_saved">list of items you saved</string>
 </resources>
