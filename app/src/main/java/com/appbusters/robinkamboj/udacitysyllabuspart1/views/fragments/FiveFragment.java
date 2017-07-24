@@ -62,23 +62,23 @@ public class FiveFragment extends Fragment {
         Toast.makeText(getActivity(), uri != null ? uri.toString() : null, Toast.LENGTH_LONG).show();
     }
 
-    @SuppressWarnings("deprecation")
     @OnClick(R.id.retrieve)
     public void setRetrieve(){
         // Retrieve student records
         String URL = "content://com.appbusters.robinkamboj.udacitysyllabuspart1.controller.StudentsProvider";
-
         Uri students = Uri.parse(URL);
-        Cursor c = getActivity().managedQuery(students, null, null, null, "name");
-
-        if (c.moveToFirst()) {
-            do{
+        Cursor c = getActivity().getContentResolver().query(students, null, null, null, "name");
+        if (c != null && c.moveToFirst()) {
+            do {
                 Toast.makeText(getActivity(),
                         c.getString(c.getColumnIndex(StudentsProvider._ID)) +
-                                ", " +  c.getString(c.getColumnIndex( StudentsProvider.NAME)) +
-                                ", " + c.getString(c.getColumnIndex( StudentsProvider.GRADE)),
+                                ", " + c.getString(c.getColumnIndex(StudentsProvider.NAME)) +
+                                ", " + c.getString(c.getColumnIndex(StudentsProvider.GRADE)),
                         Toast.LENGTH_SHORT).show();
             } while (c.moveToNext());
+        }
+        if (c != null) {
+            c.close();
         }
     }
 }
