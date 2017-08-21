@@ -1,6 +1,7 @@
 package com.appbusters.robinkamboj.udacitysyllabuspart1.model;
 
 public class MyCalculatorModel {
+
     public static int add(int a, int b){
         return a+b;
     }
@@ -19,5 +20,9 @@ public class MyCalculatorModel {
         else {
             return String.valueOf(a/b);
         }
+    }
+
+    public static int multiply(int a, int b){
+        return a*b;
     }
 }

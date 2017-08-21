@@ -125,10 +125,12 @@ public class MainActivity extends AppCompatActivity {
             if(SharedPrefs.getIsToggleTrue().equals(getString(R.string.key_true))){
                 switch_bg.setBackgroundColor(getResources().getColor(R.color.white));
                 switch_bg.setChecked(true);
+                switch_bg.setContentDescription("COLOR CHANGED TO WHITE");
             }
             else {
                 switch_bg.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                 switch_bg.setChecked(false);
+                switch_bg.setContentDescription("COLOR CHANGED TO PRIMARY DARK");
             }
         }
 

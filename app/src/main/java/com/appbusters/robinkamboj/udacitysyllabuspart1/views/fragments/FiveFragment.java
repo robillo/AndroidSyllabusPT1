@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import com.appbusters.robinkamboj.udacitysyllabuspart1.R;
 import com.appbusters.robinkamboj.udacitysyllabuspart1.controller.StudentsProvider;
+import com.appbusters.robinkamboj.udacitysyllabuspart1.views.activities.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +27,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FiveFragment extends Fragment {
+public class FiveFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
 
     @BindView(R.id.editText2)
     EditText name;
@@ -64,10 +68,35 @@ public class FiveFragment extends Fragment {
 
     @OnClick(R.id.retrieve)
     public void setRetrieve(){
+//        // Retrieve student records
+//        String URL = "content://com.appbusters.robinkamboj.udacitysyllabuspart1.controller.StudentsProvider";
+//        Uri students = Uri.parse(URL);
+//        Cursor c = getActivity().getContentResolver().query(students, null, null, null, "name");
+//        if (c != null && c.moveToFirst()) {
+//            do {
+//                Toast.makeText(getActivity(),
+//                        c.getString(c.getColumnIndex(StudentsProvider._ID)) +
+//                                ", " + c.getString(c.getColumnIndex(StudentsProvider.NAME)) +
+//                                ", " + c.getString(c.getColumnIndex(StudentsProvider.GRADE)),
+//                        Toast.LENGTH_SHORT).show();
+//            } while (c.moveToNext());
+//        }
+//        if (c != null) {
+//            c.close();
+//        }
+        getActivity().getSupportLoaderManager().initLoader(0, null, this);
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Retrieve student records
         String URL = "content://com.appbusters.robinkamboj.udacitysyllabuspart1.controller.StudentsProvider";
         Uri students = Uri.parse(URL);
-        Cursor c = getActivity().getContentResolver().query(students, null, null, null, "name");
+        return new CursorLoader(getActivity(), students, null, null, null, "name");
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor c) {
         if (c != null && c.moveToFirst()) {
             do {
                 Toast.makeText(getActivity(),
@@ -77,8 +106,13 @@ public class FiveFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
             } while (c.moveToNext());
         }
-        if (c != null) {
+        if (c!=null) {
             c.close();
         }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        Toast.makeText(getActivity(), "LOADER RESET", Toast.LENGTH_SHORT).show();
     }
 }
