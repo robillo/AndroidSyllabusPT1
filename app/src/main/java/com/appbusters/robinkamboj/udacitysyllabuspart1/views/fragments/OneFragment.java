@@ -42,6 +42,8 @@ import butterknife.OnClick;
  */
 public class OneFragment extends Fragment {
 
+    //dot dot dot
+
     private List<Data> data = null;
     private MyDBHelper dbHelper;
     private String iHeading = null, iDesc = null;
